@@ -208,7 +208,7 @@ function frame(now){
   const proj=(x,y,z)=>[cx+(x*ca-y*sa)*s,cy+(x*sa+y*ca)*s*tilt-z*s*1.02,(x*sa+y*ca)];
   const build=(t-.6)/4.6*14;           // floors completed
   const done=Math.min(1,Math.max(0,(t-5.4)/1.2));
-  const scanZ=done<1?Math.min(build,14):7+6.6*Math.sin((t-6.6)*.55-1.57)+0.4;
+  const scanZ=Math.max(0,Math.min(build,14));
   // ground dots
   cx2.fillStyle='#55524E';
   for(const g of ground){const p=proj(...g);cx2.globalAlpha=.35+.3*Math.min(1,t/1.5);cx2.fillRect(p[0]-1,p[1]-1,2,2)}
@@ -227,7 +227,7 @@ function frame(now){
     cx2.fillRect(p[0]-r/2,p[1]-r/2,r,r)}
   // scan plane
   const hw=8.5,hd=5.5,c=[[-hw,-hd],[hw,-hd],[hw,hd],[-hw,hd]].map(v=>proj(v[0]+.5,v[1],scanZ));
-  cx2.globalAlpha=.10;cx2.fillStyle='#C0612F';cx2.beginPath();c.forEach((p,i)=>i?cx2.lineTo(p[0],p[1]):cx2.moveTo(p[0],p[1]));cx2.closePath();cx2.fill();
+  cx2.globalAlpha=done<1?.10:.07+.05*Math.sin(t*2.2);cx2.fillStyle='#C0612F';cx2.beginPath();c.forEach((p,i)=>i?cx2.lineTo(p[0],p[1]):cx2.moveTo(p[0],p[1]));cx2.closePath();cx2.fill();
   cx2.globalAlpha=.75;cx2.strokeStyle='#C0612F';cx2.stroke();
   // corten mast (logo "I") rises after build
   if(done>0){const m=ease(done),b0=proj(MAST.x,MAST.y,0),top=proj(MAST.x,MAST.y,MAST.top*m),wpx=Math.max(4,s*.32);
