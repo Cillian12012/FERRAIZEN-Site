@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="FERRAIZEN — генеральный подряд. Сайт скоро.">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="FERRAIZEN — general contractor. Website coming soon.">
 <style>*{box-sizing:border-box}body{margin:0}</style>
 <title>FERRAIZEN</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,8 +96,8 @@ footer .z{position:absolute;top:-1px;left:0;width:4px;height:22px;transform:tran
   <header>
     <svg class="logo" viewBox="-16 -30 431 98" role="img" aria-label="FERRAIZEN — General Contractor"><g class="lt" style="--i:0"><rect x="0.0" y="0.0" width="4.5" height="34.0"/><rect x="0.0" y="0.0" width="34.0" height="4.5"/><rect x="0.0" y="14.8" width="27.2" height="4.5"/></g><g class="lt" style="--i:1"><rect x="49.0" y="0.0" width="4.5" height="34.0"/><rect x="49.0" y="0.0" width="34.0" height="4.5"/><rect x="49.0" y="14.8" width="28.9" height="4.5"/><rect x="49.0" y="29.5" width="34.0" height="4.5"/></g><g class="lt" style="--i:2"><rect x="98.0" y="0.0" width="4.5" height="34.0"/><rect x="98.0" y="0.0" width="34.0" height="4.5"/><rect x="127.5" y="0.0" width="4.5" height="19.5"/><rect x="98.0" y="15.0" width="34.0" height="4.5"/><polygon points="112.8,19.5 117.2,19.5 132.0,34.0 127.5,34.0"/></g><g class="lt" style="--i:3"><rect x="147.0" y="0.0" width="4.5" height="34.0"/><rect x="147.0" y="0.0" width="34.0" height="4.5"/><rect x="176.5" y="0.0" width="4.5" height="19.5"/><rect x="147.0" y="15.0" width="34.0" height="4.5"/><polygon points="161.8,19.5 166.2,19.5 181.0,34.0 176.5,34.0"/></g><g class="lt" style="--i:4"><rect x="196.0" y="0.0" width="4.5" height="34.0"/><rect x="225.5" y="0.0" width="4.5" height="34.0"/><rect x="196.0" y="0.0" width="34.0" height="4.5"/><rect x="196.0" y="16.3" width="34.0" height="4.5"/></g><g class="lt" style="--i:5"><rect x="267.0" y="0.0" width="34.0" height="4.5"/><rect x="267.0" y="29.5" width="34.0" height="4.5"/><polygon points="295.8,4.5 301.0,4.5 272.2,29.5 267.0,29.5"/></g><g class="lt" style="--i:6"><rect x="316.0" y="0.0" width="4.5" height="34.0"/><rect x="316.0" y="0.0" width="34.0" height="4.5"/><rect x="316.0" y="14.8" width="28.9" height="4.5"/><rect x="316.0" y="29.5" width="34.0" height="4.5"/></g><g class="lt" style="--i:7"><rect x="365.0" y="0.0" width="4.5" height="34.0"/><rect x="394.5" y="0.0" width="4.5" height="34.0"/><polygon points="365.0,0.0 370.2,0.0 399.0,34.0 393.8,34.0"/></g><rect class="gl" x="-14" y="46" width="427" height="1.2"/><polygon class="col" points="245,-18 252,-26 252,46 245,46"/><text class="desc" x="413" y="64" text-anchor="end">GENERAL CONTRACTOR</text></svg>
     <div class="lang" role="group" aria-label="Language">
-      <button id="l-ru" data-l="ru" aria-pressed="true">RU</button>
-      <button id="l-en" data-l="en" aria-pressed="false">EN</button>
+      <button id="l-en" data-l="en" aria-pressed="true">EN</button>
+      <button id="l-ru" data-l="ru" aria-pressed="false">RU</button>
       <button id="l-ar" data-l="ar" aria-pressed="false">AR</button>
     </div>
   </header>
@@ -129,7 +129,8 @@ const T={
   scan:'مسح · المنسوب',scanSub:'التوأم الرقمي',scanTop:'منسوب القمة +150.000',
   term:[['نموذج BIM','متزامن'],['التوأم الرقمي','متصل'],['التحكم الذكي بالجدول','نشط'],['خرسانة · فولاذ · بيانات','نظام واحد']]}
 };
-let lang='ru';
+let lang='en';
+(navigator.languages||[navigator.language||'']).some(x=>{x=(x||'').toLowerCase();if(x.startsWith('ru')){lang='ru';return true}if(x.startsWith('ar')){lang='ar';return true}return x.startsWith('en')});
 try{const s=localStorage.getItem('fz-lang');if(T[s])lang=s}catch(e){}
 const $=id=>document.getElementById(id);
 function setLang(l){
